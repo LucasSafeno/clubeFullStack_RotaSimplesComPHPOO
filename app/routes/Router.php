@@ -42,12 +42,13 @@ class Router
     {
         return [
             'get' => [
-                '/' => self::load('HomeController', 'index'),
-                '/contact' => self::load('ContactController', 'index')
+                '/' => fn() => self::load('HomeController', 'index'),
+                '/contact' => fn() => self::load('ContactController', 'index'),
+                '/product' => fn() => self::load('ProductController', 'index')
 
             ],
             'post' => [
-                '/contact' => self::load('ContactController', 'store')
+                '/contact' => fn() => self::load('ContactController', 'store')
             ],
         ];
     }
@@ -72,7 +73,11 @@ class Router
 
             $router = $routes[$request][$uri];
 
-            var_dump($router);
+            if (!is_callable($router)) {
+                throw new Exception("Route {$uri} is not a callable");
+            }
+
+            $router();
 
 
 
