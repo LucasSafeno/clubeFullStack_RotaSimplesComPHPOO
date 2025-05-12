@@ -3,6 +3,8 @@
 namespace app\routes;
 
 use Exception;
+use app\helpers\Uri;
+use app\helpers\Request;
 
 class Router
 {
@@ -48,5 +50,34 @@ class Router
                 '/contact' => self::load('ContactController', 'store')
             ],
         ];
+    }
+
+    public static function execute()
+    {
+        try {
+
+            $routes = self::routes();
+            $request = Request::get();
+            $uri = Uri::get('path');
+
+
+            if (!isset($routes[$request])) {
+                throw new Exception('A rota não existe');
+            }
+
+
+            if (!array_key_exists($uri, $routes[$request])) {
+                throw new Exception('A rota não existe');
+            }
+
+            $router = $routes[$request][$uri];
+
+            var_dump($router);
+
+
+
+        } catch (\Throwable $th) {
+            echo $th->getMessage();
+        }
     }
 }

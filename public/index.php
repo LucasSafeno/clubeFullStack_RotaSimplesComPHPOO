@@ -5,6 +5,6 @@ require "../vendor/autoload.php";
 
 use app\routes\Router;
 
-Router::routes();
+Router::execute();
 
 ?>
