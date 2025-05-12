@@ -1,0 +1,15 @@
+{
+  "name": "safeno/clube-full-stack_rota-simples-com-phpoo",
+  "autoload": {
+    "psr-4": {
+      "app\\": "app/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Lucas Safeno",
+      "email": "lugnorio@gmail.com"
+    }
+  ],
+  "require": {}
+}
