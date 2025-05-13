@@ -43,12 +43,17 @@ class Router
         return [
             'get' => [
                 '/' => fn() => self::load('HomeController', 'index'),
-                '/contact' => fn() => self::load('ContactController', 'index'),
-                '/product' => fn() => self::load('ProductController', 'index')
+
 
             ],
             'post' => [
-                '/contact' => fn() => self::load('ContactController', 'store')
+
+            ],
+            'put' => [
+
+            ],
+            'delete' => [
+
             ],
         ];
     }
