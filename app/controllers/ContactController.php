@@ -2,16 +2,16 @@
 
 namespace app\controllers;
 
-class ContactController
+class ContactController extends Controller
 {
     public function index()
     {
-        var_dump('index na contact');
+        $this->view('contact');
 
 
     }
-    public function store()
+    public function store($params)
     {
-        // var_dump('store no contact');
+        var_dump($params);
     }
 }

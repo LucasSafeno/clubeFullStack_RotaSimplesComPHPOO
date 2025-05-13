@@ -11,5 +11,7 @@
       "email": "lugnorio@gmail.com"
     }
   ],
-  "require": {}
+  "require": {
+    "league/plates": "^3.6"
+  }
 }

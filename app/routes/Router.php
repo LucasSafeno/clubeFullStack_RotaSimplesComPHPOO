@@ -29,7 +29,7 @@ class Router
                 throw new Exception("O metodo {$method} não existe no controller {$controller}");
             }
 
-            $controllerInstance->$method();
+            $controllerInstance->$method((object) $_REQUEST);
 
 
 
